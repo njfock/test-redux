@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { reduxForm, Field } from 'redux-form'
-
+import CustomInput from './CustomInput'
 const validate = values => {
     const errors = {}
     if(!values.name) {
@@ -15,11 +15,10 @@ const validate = values => {
 class UserForm extends Component {
     render(){
         const { handleSubmit } = this.props
-        console.log(this.props)
         return(
             <form onSubmit={handleSubmit}>
-                <Field name="name" component="input"/>
-                <Field name="lastname" component="input"/>
+                <Field name="name" component={CustomInput} placeholder="Nombre" title="Nombre"/>
+                <Field name="lastname" component={CustomInput} placeholder="Apellido"  title="Apellido"/>
                 <input type="submit" value="Enviar"/>
             </form>
         )
